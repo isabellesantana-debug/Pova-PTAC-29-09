@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "nome": "Ana Júlia",
+    "email": "anajulia@email.com",
+    "idade": 13,
+    "updatedAt": "2026-08-28T18:20:56.566Z"
+  },
+  {
+    "id": 2,
+    "nome": "Ana Clara",
+    "idade": 30,
+    "email": "anaclara@email.com"
+  },
+  {
+    "id": 3,
+    "nome": "Bruno",
+    "idade": 35,
+    "email": "bruno@email.com"
+  },
+  {
+    "id": 4,
+    "nome": "Maria",
+    "email": "maria@email.com"
+  },
+  {
+    "nome": "Elisa",
+    "email": "elisa@email.com",
+    "id": 5
+  },
+  {
+    "nome": "Gabriela",
+    "email": "gabriela@email.com",
+    "id": 6
+  },
+  {
+    "id": 7,
+    "nome": "Jurema",
+    "email": "jurema@x.com",
+    "updatedAt": "2026-09-04T18:24:11.492Z"
+  },
+  {
+    "nome": "Gabriela",
+    "email": "gabriela@email.com",
+    "id": 8,
+    "deletedAt": null,
+    "updatedAt": "2026-09-04T18:28:58.769Z"
+  },
+  {
+    "id": 9,
+    "nome": "Carla",
+    "email": "carla@x.com"
+  }
+]
