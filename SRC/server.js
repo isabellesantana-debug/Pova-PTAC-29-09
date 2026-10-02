@@ -43,18 +43,17 @@ app.post("/users", async (req, res) => {
   users.push(novo);
   await writeUsers(users);
 
-  // 201 Created + recurso no body
+  
   res.status(201).json(novo);
 });
 
 app.post("/users/batch", async (req, res) => {
   const usersBody = req.body || {};
   console.log("Batch Users: ", usersBody);
-  // validação simples
 
   const users = await readUsers();
   let biggestId = users.length ? Math.max(...users.map((u) => u.id)) : 0;
-  const validUsers = usersBody
+  const validUsers = usersBody 
     .filter(
       (u) =>
         u.nome &&
@@ -79,15 +78,12 @@ app.post("/users/batch", async (req, res) => {
   const newUsers = [...users, ...validUsers];
   await writeUsers(newUsers);
 
-  // 201 Created + recurso no body
   res.status(201).json(validUsers);
 });
 
 app.put('/users/:id', async (req, res) => {
-  // 1. params vem SEMPRE como string → converter para number
   const id = Number(req.params.id)
   
-  // 2. PUT exige TODOS os campos obrigatórios no body
   const { nome, email } = req.body || {}
 
   if (!nome || !email) {
@@ -96,15 +92,12 @@ app.put('/users/:id', async (req, res) => {
     })
   }
 
-  // 3. Busca o índice (não o objeto) para poder substituir no array
   const users = await readUsers()
   const idx = users.findIndex(u => u.id === id)
   if (idx === -1) return res.status(404).json({ erro: 'Usuário não encontrado' })
 
-  // 4. SUBSTITUI o objeto inteiro — mantém id da URL, descarta o do body
   users[idx] = { id, nome, email }
   
-  // 5. Persiste e responde com recurso atualizado
   await writeUsers(users)
   res.json(users[idx])  // 200 OK
 })
@@ -123,7 +116,7 @@ app.patch('/users/:id', async (req, res) => {
   
   
   await writeUsers(users)
-  res.json(user)  // 200 OK com recurso mesclado
+  res.json(user)  
 })
 
 app.delete('/users/:id', async (req, res) => {
