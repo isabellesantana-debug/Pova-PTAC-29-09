@@ -6,7 +6,7 @@ app.use(express.json());
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-    res.json({message: 'A API está On!'})
+    res.json({'message': 'API esta funcionando corretamente!'})
 })
 
 app.get("/nomeAluno", async (req, res) => {
