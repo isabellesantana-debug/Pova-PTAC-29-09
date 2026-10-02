@@ -1,47 +1,56 @@
 [
   {
     "id": 1,
-    "nome": "Ana Júlia",
-    "email": "anajulia@email.com",
-    "idade": 13,
+    "nomeAluno": "Ana Júlia",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
     "updatedAt": "2026-08-28T18:20:56.566Z"
   },
   {
     "id": 2,
-    "nome": "Ana Clara",
-    "idade": 30,
-    "email": "anaclara@email.com"
+    "nomeAluno": "Ana Clara",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
+    "updatedAt": "2026-08-28T18:20:56.566Z"
   },
   {
     "id": 3,
-    "nome": "Bruno",
-    "idade": 35,
-    "email": "bruno@email.com"
+    "nomeAluno": "Bruno",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
+    "updatedAt": "2026-08-28T18:20:56.566Z"
   },
   {
     "id": 4,
-    "nome": "Maria",
-    "email": "maria@email.com"
+    "nomeAluno": "Maria",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
+    "updatedAt": "2026-08-28T18:20:56.566Z"
+  },
+  {  
+    "id": 5,
+    "nomeAluno": "Elisa",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
+    "updatedAt": "2026-08-28T18:20:56.566Z"
   },
   {
-    "nome": "Elisa",
-    "email": "elisa@email.com",
-    "id": 5
-  },
-  {
-    "nome": "Gabriela",
-    "email": "gabriela@email.com",
-    "id": 6
+    "nomeAluno": "Gabriela",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
+    "updatedAt": "2026-08-28T18:20:56.566Z"
   },
   {
     "id": 7,
-    "nome": "Jurema",
-    "email": "jurema@x.com",
+    "nomeAluno": "Jurema",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
     "updatedAt": "2026-09-04T18:24:11.492Z"
   },
   {
-    "nome": "Gabriela",
-    "email": "gabriela@email.com",
+    "nomeAluno": "Gabriela",
+    "livro": "Clean Code",
+    "devolvidoEm": null,
     "id": 8,
     "deletedAt": null,
     "updatedAt": "2026-09-04T18:28:58.769Z"
