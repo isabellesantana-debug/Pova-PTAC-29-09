@@ -1,5 +1,12 @@
 [
-  { "id": 1, "name": "Product 1", "price": 10.99 },
-  { "id": 2, "name": "Product 2", "price": 19.99 },
-  { "id": 3, "name": "Product 3", "price": 5.49 }
+  { "id": 1, "name": "emprestimos 1", "price": null },
+  { "id": 2, "name": "emprestimos 2", "price": null },
+  { "id": 3, "name": "emprestimos 3", "price": null },
+  { "id": 4, "name": "emprestimos 4", "price": null },
+  { "id": 5, "name": "emprestimos 5", "price": null },
+  { "id": 6, "name": "emprestimos 6", "price": null },
+  { "id": 7, "name": "emprestimos 7", "price": null },
+  { "id": 8, "name": "emprestimos 8", "price": null },
+  { "id": 9, "name": "emprestimos 9", "price": null },
+  { "id": 10, "name": "emprestimos 10", "price": null }
 ]
