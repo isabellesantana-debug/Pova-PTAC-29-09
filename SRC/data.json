@@ -55,9 +55,5 @@
     "deletedAt": null,
     "updatedAt": "2026-09-04T18:28:58.769Z"
   },
-  {
-    "id": 9,
-    "nome": "Carla",
-    "email": "carla@x.com"
-  }
-]
+{}
+  ]
