@@ -58,8 +58,8 @@ app.post("/nomeAluno/batch", async (req, res) => {
       (u) =>
         u.nome &&
         typeof u.nome === "string" &&
-        u.email &&
-        u.email.includes("@"),
+        u.livro &&
+        u.livro.includes("@"),
     )
     .map((u) => ({
       ...u,
