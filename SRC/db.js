@@ -4,16 +4,14 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DB_PATH = join(__dirname, "data.json");
-// function joinPath(docPath) {
-//   return join(__dirname, docPath);
-// }
+
 
 export async function readUsers() {
   try {
     const raw = await readFile(DB_PATH, "utf8");
     return JSON.parse(raw);
   } catch (err) {
-    if (err.code === "ENOENT") return []; // arquivo não existe, retorna array vazio
+    if (err.code === "ENOENT") return []; 
     throw err;
   }
 }
@@ -27,7 +25,7 @@ export async function readProducts() {
     const raw = await readFile(joinPath("products.json"), "utf8");
     return JSON.parse(raw);
   } catch (err) {
-    if (err.code === "ENOENT") return []; // arquivo não existe, retorna array vazio
+    if (err.code === "ENOENT") return []; 
     throw err;
   }
 }
