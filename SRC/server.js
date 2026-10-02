@@ -9,37 +9,37 @@ app.get('/', (req, res) => {
     res.json({message: 'A API está On!'})
 })
 
-app.get("/users", async (req, res) => {
+app.get("/nomeAluno", async (req, res) => {
   const { maior } = req.query;
   let users = await readUsers();
   if (maior) {
-    users = users.filter((u) => u.idade > Number(maior));
+    users = nomeAluno.filter((u) => u.livro > Number(maior));
   }
-  res.json(users);
+  res.json(nomeAluno);
 });
 
-app.get("/users/:id", async (req, res) => {
+app.get("/nomeAluno/:id", async (req, res) => {
   const users = await readUsers();
   const user = users.find((u) => u.id === Number(req.params.id));
-  if (!user) return res.status(404).json({ erro: "Usuário não encontrado" });
+  if (!user) return res.status(404).json({ erro: "Nome do aluno não encontrado" });
   res.json(user);
 });
 
-app.post("/users", async (req, res) => {
-  const { nome, email } = req.body || {};
+app.post("/nomeAluno", async (req, res) => {
+  const { nome, livro } = req.body || {};
 
-  // validação simples
+
   if (!nome || typeof nome !== "string") {
     return res.status(400).json({ erro: "nome é obrigatório" });
   }
-  if (!email || !email.includes("@")) {
-    return res.status(400).json({ erro: "email inválido" });
+  if (!livro || typeof livro !== "string") {
+    return res.status(400).json({ erro: "livro é obrigatório" });
   }
 
   const users = await readUsers();
   const novoId = users.length ? Math.max(...users.map((u) => u.id)) + 1 : 1;
 
-  const novo = { id: novoId, nome, email };
+  const novo = { id: novoId, nome, livro: null };
   users.push(novo);
   await writeUsers(users);
 
@@ -47,7 +47,7 @@ app.post("/users", async (req, res) => {
   res.status(201).json(novo);
 });
 
-app.post("/users/batch", async (req, res) => {
+app.post("/nomeAluno/batch", async (req, res) => {
   const usersBody = req.body || {};
   console.log("Batch Users: ", usersBody);
 
@@ -81,32 +81,32 @@ app.post("/users/batch", async (req, res) => {
   res.status(201).json(validUsers);
 });
 
-app.put('/users/:id', async (req, res) => {
+app.put('/nomeAluno/:id', async (req, res) => {
   const id = Number(req.params.id)
   
-  const { nome, email } = req.body || {}
+  const { nome, livro } = req.body || {}
 
-  if (!nome || !email) {
+  if (!nome || !livro) {
     return res.status(400).json({ 
-      erro: 'nome e email são obrigatórios para PUT (substituição completa)' 
+      erro: 'nome e livro são obrigatórios para PUT (substituição completa)' 
     })
   }
 
   const users = await readUsers()
   const idx = users.findIndex(u => u.id === id)
-  if (idx === -1) return res.status(404).json({ erro: 'Usuário não encontrado' })
+  if (idx === -1) return res.status(404).json({ erro: 'Nome do aluno não encontrado' })
 
-  users[idx] = { id, nome, email }
+  users[idx] = { id, nome, livro, createdAt: users[idx].createdAt, updatedAt: new Date().toISOString() }
   
   await writeUsers(users)
-  res.json(users[idx])  // 200 OK
+  res.json(users[idx])  
 })
 
-app.patch('/users/:id', async (req, res) => {
+app.patch('/nomeAluno/:id', async (req, res) => {
   const id = Number(req.params.id)
   const users = await readUsers()
   const user = users.find(u => u.id === id)
-  if (!user) return res.status(404).json({ erro: 'Usuário não encontrado' })
+  if (!user) return res.status(404).json({ erro: 'Nome do aluno não encontrado' })
 
   const { id: _, createdAt: __, updatedAt: ___, ...dadosPermitidos } = req.body || {}
   console.log(req.body)
@@ -119,15 +119,19 @@ app.patch('/users/:id', async (req, res) => {
   res.json(user)  
 })
 
-app.delete('/users/:id', async (req, res) => {
+app.delete('/nomeAluno/:id', async (req, res) => {
   const id = Number(req.params.id);
   const users = await readUsers();
   const user = users.findIndex((u) => u.id === id);
-  if (!user) return res.status(404).json({ erro: "Usuário não encontrado" });
+  if (!user) return res.status(404).json({ erro: "Nome do aluno não encontrado" });
 
   user.deletedAt = new Date().toISOString();
   await writeUsers(users);
-  res.status(204).json({ message: "Usuário removido com sucesso" });
+  res.status(204).json({ message: "Nome do aluno removido com sucesso" });
+  
+  user.deletedAt = new Date().toISOString();
+  await writeUsers(users);
+  res.status(204).json({ message: "livro removido com sucesso" });
 });
 
 app.get("/products", async (req, res) => {
